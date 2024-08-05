@@ -1,4 +1,3 @@
-
 ##############################################################
 #
 # AESD-ASSIGNMENTS
@@ -6,11 +5,11 @@
 ##############################################################
 
 #TODO: Fill up the contents below in order to reference your assignment 3 git contents
-AESD_ASSIGNMENTS_VERSION = 'f6140f0c716ba35db1d98a06b2e942cfcbb63085'
+AESD_ASSIGNMENTS_VERSION = e706d5e6ee0b49f2727322df42b4e73d1fca15a8
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:
-AESD_ASSIGNMENTS_SITE = 'git@github.com:cu-ecen-aeld/assignments-3-and-later-ctg123.git'
+AESD_ASSIGNMENTS_SITE = git@github.com:cu-ecen-aeld/assignments-3-and-later-ctg123.git
 AESD_ASSIGNMENTS_SITE_METHOD = git
 AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
 
@@ -24,14 +23,17 @@ define AESD_ASSIGNMENTS_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/conf/* $(TARGET_DIR)/etc/finder-app/conf/
 	$(INSTALL) -m 0755 $(@D)/assignment-autotest/test/assignment4/* $(TARGET_DIR)/bin
 
+	$(INSTALL) -m 0755 $(@D)/unit-test.sh $(TARGET_DIR)/bin
+	$(INSTALL) -m 0755 $(@D)/full-test.sh $(TARGET_DIR)/bin
+	
 	# writer
-	$(INSTALL) -d 0755 $(@D)/finder-app/writer $(TARGET_DIR)/...
+	$(INSTALL) -m 0755 $(@D)/finder-app/writer $(TARGET_DIR)/bin
 
 	# finder
-	$(INSTALL) -d 0755 $(@D)/finder-app/finder.sh $(TARGET_DIR)/...
+	$(INSTALL) -m 0755 $(@D)/finder-app/finder.sh $(TARGET_DIR)/bin
 
 	# finder-test
-	$(INSTALL) -d 0755 $(@D)/finder-app/finder-test.sh $(TARGET_DIR)/...
+	$(INSTALL) -m 0755 $(@D)/finder-app/finder-test.sh $(TARGET_DIR)/bin
 
 endef
 
